@@ -1,10 +1,10 @@
 "use strict"
-const UserForm = new UserForm();
+const userForm = new UserForm();
 userForm.loginFormCallback = data => ApiConnector.login(data, callback => {
     if (callback.success) {
       location.reload();
     } else {
-      userForm.setLoginErrorMessage(response.error);
+      userForm.setLoginErrorMessage(callback);
     }
   })
 
@@ -12,7 +12,7 @@ userForm.loginFormCallback = data => ApiConnector.login(data, callback => {
     if (callback.success) {
       location.reload();
     } else {
-      userForm.setRegisterErrorMessage(response.error);
+      userForm.setRegisterErrorMessage(callback);
     }
   })
 
