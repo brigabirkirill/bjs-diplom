@@ -4,7 +4,7 @@ userForm.loginFormCallback = data => ApiConnector.login(data, callback => {
     if (callback.success) {
       location.reload();
     } else {
-      userForm.setLoginErrorMessage(callback);
+      userForm.setLoginErrorMessage(callback.error);
     }
   })
 
@@ -12,7 +12,7 @@ userForm.loginFormCallback = data => ApiConnector.login(data, callback => {
     if (callback.success) {
       location.reload();
     } else {
-      userForm.setRegisterErrorMessage(callback);
+      userForm.setRegisterErrorMessage(callback.error);
     }
   })
 
