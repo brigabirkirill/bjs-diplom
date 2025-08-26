@@ -48,6 +48,7 @@ moneyManager.conversionMoneyCallback = data => ApiConnector.convertMoney(data, c
 moneyManager.sendMoneyCallback = data => ApiConnector.transferMoney(data, callback => {
     if(callback.success) {
         ProfileWidget.showProfile(callback.data); 
+        moneyManager.updateUsersList(callback.data);
         moneyManager.setMessage(true, 'Перевод успешно выполнен');
     } else {
         moneyManager.setMessage(false, callback.error);
